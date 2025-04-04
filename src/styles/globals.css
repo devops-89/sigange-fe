@@ -172,8 +172,8 @@ body {
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  color: red !important; 
-  font-size: 24px !important; 
+  color: white !important; 
+  font-size: 26px !important; 
 }
 
 
