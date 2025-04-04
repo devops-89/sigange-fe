@@ -8,13 +8,12 @@ const ContactUs = () => {
         <div className=" p-6 ">
           <h3 className="text-xl font-bold mb-2">CONTACT US</h3>
           <hr className="mb-4" />
-          <p className="font-semibold">Spell Advertising</p>
+          <p className="font-semibold">JASSAL SIGNS Advertising</p>
           <p>
-            59, Deena Garhi, Hapur Road, Near old bus stand,<br />
-            Ghaziabad-201001, NCR, INDIA
+          7728 128 St Unit 101, Surrey, BC V3W 1L3, Canada
           </p>
-          <p className="mt-2 font-medium">+91-9891142254</p>
-          <p className="text-blue-600 cursor-pointer">spelladvt4@gmail.com</p>
+          <p className="mt-2 font-medium">(604) 599 4221</p>
+          <p className="text-blue-600 cursor-pointer">info@jassalsigns.com</p>
         </div>
 
         {/* Contact Form */}
