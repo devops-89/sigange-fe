@@ -92,6 +92,7 @@
 
 body {
   color: var(--foreground);
+  font-family: 'Poppins', sans-serif;
  
 }
 
@@ -161,7 +162,7 @@ body {
   height: 100%;
   position: absolute;
   left: 0;
-  background-color:#FF6900;
+  background-color:#ff6a0031;
   top: 0;
   transition: all 0.8s;
 }

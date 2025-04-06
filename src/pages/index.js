@@ -1,10 +1,18 @@
 "use client";
 import { useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar";
+
 import Services from "@/components/Services";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
+import Footer from "@/components/homepage/Footer.jsx";
+import TempServices from "@/components/homepage/TempServices";
+import SignageGallery from "@/components/homepage/SignageGallery";
+import HeroSlider from "@/components/HeroSlider";
+import Navbar from "@/components/homepage/Navbar";
+import OurClients from "@/components/homepage/OurClients";
+import CityCardsSection from "@/components/homepage/CityCardSection";
+import CounterSection from "@/components/homepage/CounterSection";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,64 +27,23 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen w-full text-white">
-      
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-        src="/background.mp4"
-      />
+    <div>
+      <Navbar />
+      <HeroSlider />
+      {/* Counter Section */}
+      <CounterSection/>
+      {/* TempServices */}
+      <TempServices />
 
-      {/* Content Wrapper */}
-      <div className="flex items-center justify-center flex-col min-h-screen p-4 sm:p-0">
-        
-        {/* Logo */}
-        <div className="w-full flex justify-between items-center pl-4 sm:pl-10">
-          <Link href="/">
-            <img src="/logo.webp" className="w-[140px]" alt="Logo" />
-          </Link>
+      {/* Signage Gallery */}
+      <SignageGallery />
 
-          {/* Mobile Menu Toggle Button */}
-        
-          {/* Mobile Menu Button */}
-                 <button className="md:hidden z-30 focus:outline-none"  onClick={() => setMenuOpen(!menuOpen)}>
-                   {menuOpen ? (
-                     <div className="text-white"><IoMdClose className="text-[30px]" /></div>
-                   ) : (
-                     <div>
-                       <div className="w-6 h-1 bg-white mb-1"></div>
-                       <div className="w-6 h-1 bg-white mb-1"></div>
-                       <div className="w-6 h-1 bg-white"></div>
-                     </div>
-                   )}
-                 </button>
-        </div>
-
-        {/* Navigation & Services */}
-        <div className="w-full mt-6">
-          <div className="text-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
-            
-            {/* Navbar (Hidden on Mobile, Toggleable) */}
-            <div
-              className={`border-r-0 sm:border-r-2 sm:w-[350px] w-full sm:max-w-[350px] ${
-                menuOpen ? "block" : "hidden sm:block"
-              }`}
-            >
-              <Navbar />
-            </div>
-
-            {/* Services */}
-            <div className="w-full sm:w-auto">
-              <Services />
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    
+      {/* City Card Services */}
+      <CityCardsSection />
+      {/* our clients */}
+      <OurClients />
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 }

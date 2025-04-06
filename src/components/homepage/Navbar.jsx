@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import CustomButton from "./ui/CustomButton";
+import CustomButton from "../ui/CustomButton";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
-const CityNavbar = () => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -53,7 +53,7 @@ const CityNavbar = () => {
         >
           <ul className="flex flex-col justify-center items-center md:flex-row space-y-6 md:space-y-0 md:space-x-6 p-6 md:p-0 font-medium text-xl">
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="/">
+              <Link className="hover:text-gray-300 transition-colors" href="#home">
                 Home
               </Link>
             </li>
@@ -63,18 +63,18 @@ const CityNavbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#product">
-                Products
+              <Link className="hover:text-gray-300 transition-colors" href="#gallery">
+               Gallery
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#about">
-                About Us
+              <Link className="hover:text-gray-300 transition-colors" href="#cities">
+                Cities
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#contact">
-                Contact
+              <Link className="hover:text-gray-300 transition-colors" href="#clients">
+                Clients
               </Link>
             </li>
           </ul>
@@ -91,4 +91,4 @@ const CityNavbar = () => {
   );
 };
 
-export default CityNavbar;
+export default Navbar;
