@@ -1,19 +1,21 @@
-"use client";
-import { useState } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Services from "@/components/Services";
-import TempServices from "@/components/TempServices";
-import Link from "next/link";
-import { IoMdClose } from "react-icons/io";
+'use client';
+import { useState } from 'react';
+import { Geist, Geist_Mono } from 'next/font/google';
+import Navbar from '@/components/Navbar';
+import TempServices from '@/components/TempServices';
+import Link from 'next/link';
+import { IoMdClose } from 'react-icons/io';
+import MarqueeText from '@/components/MarqueeText';
+import HomepageFooter from '@/components/HomepageFooter';
+
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export default function Home() {
@@ -21,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full text-white">
-      
+      {/* Background Video */}
       <video
         autoPlay
         loop
@@ -30,56 +32,56 @@ export default function Home() {
         src="/background.mp4"
       />
 
-      {/* Content Wrapper */}
-      <div className="flex items-center justify-center flex-col min-h-screen p-4 sm:p-0">
-        
-        {/* Logo */}
-        <div className="w-full flex justify-between items-center pl-4 sm:pl-10">
+      {/* Page Content */}
+      <div className="flex h-screen flex-col sm:p-0">
+        {/* Header */}
+        <div className="flex  items-center md:pt-10 md:pl-48 sm:px-10">
           <Link href="/">
             <img src="/logo.webp" className="w-[140px]" alt="Logo" />
           </Link>
 
-          {/* Mobile Menu Toggle Button */}
-        
           {/* Mobile Menu Button */}
-                 <button className="md:hidden z-30 focus:outline-none"  onClick={() => setMenuOpen(!menuOpen)}>
-                   {menuOpen ? (
-                     <div className="text-white"><IoMdClose className="text-[30px]" /></div>
-                   ) : (
-                     <div>
-                       <div className="w-6 h-1 bg-white mb-1"></div>
-                       <div className="w-6 h-1 bg-white mb-1"></div>
-                       <div className="w-6 h-1 bg-white"></div>
-                     </div>
-                   )}
-                 </button>
+          <button
+            className="md:hidden z-30 focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <IoMdClose className="text-[30px] text-white" />
+            ) : (
+              <div className="flex flex-col gap-[4px]">
+                <div className="w-6 h-1 bg-white" />
+                <div className="w-6 h-1 bg-white" />
+                <div className="w-6 h-1 bg-white" />
+              </div>
+            )}
+          </button>
         </div>
 
-        {/* Navigation & Services */}
-        <div className="w-full mt-6">
-          <div className="text-white flex  flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
-            
-          
+        {/* Services + Navigation */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 px-4  sm:mt-12 h-auto sm:h-[80vh]">
+          {/* TempServices */}
+          <div className="w-full sm:w-auto">
+            <TempServices />
+          </div>
 
-            {/* Services */}
-            <div className="w-full sm:w-auto">
-              <TempServices/>
-            </div>
-
-              {/* Navbar (Hidden on Mobile, Toggleable) */}
-              <div
-              className={`border-r-0 sm:border-l-2 sm:w-[350px] w-full sm:max-w-[350px] ${
-                menuOpen ? "block" : "hidden sm:block"
-              }`}
-            >
-              <Navbar />
-            </div>
-
+          {/* Navbar */}
+          <div
+            className={`w-full sm:w-[350px] border-t sm:border-t-0 sm:border-l border-white pt-6 sm:pt-0 pl-0 sm:pl-6 transition-all duration-300 ${
+              menuOpen ? 'block' : 'hidden sm:block'
+            }`}
+          >
+            <Navbar />
           </div>
         </div>
 
+        {/* Marquee Text */}
+        <div className="mt-10">
+          <MarqueeText />
+        </div>
       </div>
-    
+
+      {/* Footer */}
+      <HomepageFooter />
     </div>
   );
 }

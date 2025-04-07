@@ -17,23 +17,23 @@ const Navbar = () => {
   return (
     <nav className="bg-transparent text-white py-4">
       <ul className="flex flex-col justify-center items-start space-y-6 pl-10">
-        
         {/* Menu Items with Hover Effects */}
         {[
-          { id: "01", name: "SURREY" },
-          { id: "02", name: "CLOVERDALE" },
-          { id: "03", name: "ABBOTSFORD" },
-          { id: "04", name: "EDMONTON" },  
-          { id: "05", name: "CALGARY" },
+          { name: "SURREY" },
+          { name: "CLOVERDALE" },
+          { name: "ABBOTSFORD" },
+          { name: "EDMONTON" },
+          { name: "CALGARY" },
         ].map((item, index) => (
-          <li 
-            key={index} 
-            className="relative group   cursor-pointer" 
+          <li
+            key={index}
+            className="relative group cursor-pointer"
             data-aos="fade-up"
-            data-aos-delay={index * 100} 
+            data-aos-delay={index * 100}
           >
-            <h1 className="stroke-current text-7xl font-bold text-gray-600 group-hover:text-orange-700/50 group-hover:scale-125  transition-all duration-600 ease-in-out">
-              {item.id}
+            <h1 className="stroke-current text-7xl font-bold text-gray-600 group-hover:text-orange-700/50 group-hover:scale-125 transition-all duration-600 ease-in-out">
+              {/* Removed item.id */}
+              &nbsp;
             </h1>
             <Link
               href={`/citypage/${item.name}`}

@@ -52,21 +52,32 @@ const TABS = [
 
 export default function AnimatedTabsSlider() {
   const [activeTab, setActiveTab] = useState(0);
-  const [animate, setAnimate] = useState(true);
-  const [imageVisible, setImageVisible] = useState(false);
+  const [imageVisible, setImageVisible] = useState(true);
+  const [prevImage, setPrevImage] = useState(null);
   const intervalRef = useRef(null);
+
+  const changeTab = (index) => {
+    stopAutoSwitch();
+    setImageVisible(false);
+    setPrevImage(TABS[activeTab].image);
+    setTimeout(() => {
+      setActiveTab(index);
+      setImageVisible(true);
+      AOS.refresh();
+    }, 300);
+    startAutoSwitch();
+  };
 
   const startAutoSwitch = () => {
     intervalRef.current = setInterval(() => {
-      setAnimate(false);
       setImageVisible(false);
+      setPrevImage(TABS[activeTab].image);
       setTimeout(() => {
         setActiveTab((prev) => (prev + 1) % TABS.length);
-        setAnimate(true);
         setImageVisible(true);
         AOS.refresh();
-      }, 150);
-    }, 5000);
+      }, 300);
+    },2000); // slower switch every 7 seconds
   };
 
   const stopAutoSwitch = () => {
@@ -75,60 +86,46 @@ export default function AnimatedTabsSlider() {
 
   const handleTabHover = (index) => {
     if (window.innerWidth >= 768 && index !== activeTab) {
-      stopAutoSwitch();
-      setAnimate(false);
-      setImageVisible(false);
-      setTimeout(() => {
-        setActiveTab(index);
-        setAnimate(true);
-        setImageVisible(true);
-        AOS.refresh();
-      }, 150);
-      startAutoSwitch();
+      changeTab(index);
     }
   };
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
-    setImageVisible(true);
     startAutoSwitch();
     return () => stopAutoSwitch();
   }, []);
 
   return (
     <div className="bg-[#101010b4] py-20 w-full" id="service">
-      <div className="flex flex-col md:flex-row container mx-auto px-4 md:px-20">
+      <div className="flex flex-col md:flex-row container mx-auto px-4 md:px-10">
         {/* Tabs list */}
-        <div className="flex overflow-x-auto items-start flex-col md:pl-24 gap-2 md:gap-4 mb-6 md:mb-0 md:w-1/3 w-full">
+        <div className="flex flex-col justify-start md:pl-24 gap-2 md:gap-4 mb-6 md:mb-0 md:w-1/3 w-full">
           {TABS.map((tab, i) => (
             <button
               key={i}
-              onClick={() => {
-                stopAutoSwitch();
-                setAnimate(false);
-                setImageVisible(false);
-                setTimeout(() => {
-                  setActiveTab(i);
-                  setAnimate(true);
-                  setImageVisible(true);
-                  AOS.refresh();
-                }, 150);
-                startAutoSwitch();
-              }}
+              onClick={() => changeTab(i)}
               onMouseEnter={() => handleTabHover(i)}
-              className={`gap-2 px-2 py-2 border-l-4 transition-all whitespace-nowrap ${
+              className={`gap-2 px-2 py-2 border-l-4 transition-all whitespace-nowrap flex items-center ${
                 activeTab === i
-                  ? 'border-orange-500 text-orange-500'
-                  : 'border-transparent text-white hover:text-orange-400'
+                  ? 'border-yellow-500 text-yellow-500'
+                  : 'border-transparent text-white hover:text-yellow-400'
               }`}
             >
               <i className={`fa ${tab.icon} text-lg`} />
               <span
-                className="text-lg md:text-2xl font-bold uppercase text-transparent bg-clip-text"
-                style={{
-                  WebkitTextStroke: '1px #FF6900',
-                  color: 'transparent',
-                }}
+                className="text-lg md:text-2xl font-bold uppercase ml-2 transition-all duration-300"
+                style={
+                  activeTab === i
+                    ? {
+                        color: '#F0B100',
+                        WebkitTextStroke: '0px',
+                      }
+                    : {
+                        color: 'transparent',
+                        WebkitTextStroke: '1px #F0B100',
+                      }
+                }
               >
                 {tab.title}
               </span>
@@ -138,34 +135,39 @@ export default function AnimatedTabsSlider() {
 
         {/* Content */}
         <div className="relative w-full md:w-2/3 h-auto flex justify-center">
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl w-full transform transition-all duration-700 ease-in-out ${
-              animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl w-full">
             {/* Text */}
-            <div data-aos="fade-right" className="text-white">
+            <div
+              className={`text-white transition-all duration-700 ease-in-out ${
+                imageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 {TABS[activeTab].heading}
               </h2>
               <p>{TABS[activeTab].text}</p>
             </div>
 
-            {/* Image */}
-            {TABS[activeTab].image && (
-              <div data-aos="fade-left" className="flex items-center justify-center">
+            {/* Image with fade effect */}
+            <div className="relative flex items-center justify-center h-[200px] md:h-[360px]">
+              {prevImage && (
                 <img
-                  src={TABS[activeTab].image}
-                  alt={TABS[activeTab].heading}
-                  className={`shadow-xl h-[200px] md:h-[360px] object-cover  transition-all duration-900 ease-linear transform ${
-                    imageVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+                  src={prevImage}
+                  alt="previous"
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    imageVisible ? 'opacity-0' : 'opacity-100'
                   }`}
-                  style={{
-                    transformOrigin: 'center',
-                  }}
                 />
-              </div>
-            )}
+              )}
+              <img
+                src={TABS[activeTab].image}
+                alt={TABS[activeTab].heading}
+                className={`relative shadow-xl h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                  imageVisible ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ zIndex: 10 }}
+              />
+            </div>
           </div>
         </div>
       </div>
