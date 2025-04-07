@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
+import TempServices from "@/components/TempServices";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 const geistSans = Geist({
@@ -56,18 +57,18 @@ export default function Home() {
 
         {/* Navigation & Services */}
         <div className="w-full mt-6">
-          <div className="text-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
+          <div className="text-white flex  flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
             
           
 
             {/* Services */}
             <div className="w-full sm:w-auto">
-              <Services />
+              <TempServices/>
             </div>
 
               {/* Navbar (Hidden on Mobile, Toggleable) */}
               <div
-              className={`border-r-0 sm:border-r-2 sm:w-[350px] w-full sm:max-w-[350px] ${
+              className={`border-r-0 sm:border-l-2 sm:w-[350px] w-full sm:max-w-[350px] ${
                 menuOpen ? "block" : "hidden sm:block"
               }`}
             >
