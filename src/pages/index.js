@@ -58,18 +58,20 @@ export default function Home() {
         <div className="w-full mt-6">
           <div className="text-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
             
-            {/* Navbar (Hidden on Mobile, Toggleable) */}
-            <div
+          
+
+            {/* Services */}
+            <div className="w-full sm:w-auto">
+              <Services />
+            </div>
+
+              {/* Navbar (Hidden on Mobile, Toggleable) */}
+              <div
               className={`border-r-0 sm:border-r-2 sm:w-[350px] w-full sm:max-w-[350px] ${
                 menuOpen ? "block" : "hidden sm:block"
               }`}
             >
               <Navbar />
-            </div>
-
-            {/* Services */}
-            <div className="w-full sm:w-auto">
-              <Services />
             </div>
 
           </div>
