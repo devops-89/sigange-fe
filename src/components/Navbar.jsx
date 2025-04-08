@@ -19,26 +19,25 @@ const Navbar = ({ type }) => {
     });
   }, []);
 
+  const allCities = [...cityGroups.left, ...cityGroups.right];
+
   return (
-    <nav className="bg-transparent text-white py-4">
+    <nav className="absolute top-0 left-0 bg-black w-[100vw] h-[100vh] text-white py-4">
       <ul
-        className={`flex flex-col justify-center items-start space-y-6 ${
-          type === "right" ? "pl-4 sm:items-end sm:pr-10" : "pl-10"
+        className={`flex flex-col justify-center items-start space-y-6 px-6 ${
+          type === "right" ? "items-end" : "items-start"
         }`}
       >
-        {cityGroups[type]?.map((city, index) => (
+        {(type ? cityGroups[type] : allCities).map((city, index) => (
           <li
             key={index}
-            className="relative group cursor-pointer"
+            className="relative group cursor-pointer w-full"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <h1 className="stroke-current text-6xl font-bold text-gray-600 group-hover:text-orange-700/50 group-hover:scale-125 transition-all duration-600 ease-in-out">
-              &nbsp;
-            </h1>
             <Link
               href={`/citypage/${city}`}
-              className={`absolute inset-10 text-3xl font-bold group-hover:text-orange-500 leading-4 group-hover:translate-x-3.5 transition-all duration-600 ease-in-out ${
+              className={`block text-3xl sm:text-4xl font-bold transition-all duration-300 ease-in-out group-hover:text-orange-500 ${
                 type === "right" ? "text-right" : "text-left"
               }`}
             >

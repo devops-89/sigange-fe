@@ -2,12 +2,15 @@ import React from 'react';
 import '../styles/MarqueeText.css';
 
 const texts = [
-  "INDOOR SIGNS",
-  "VEHICLE WRAPS",
-  "PRINT MEDIA",
-  "OUTDOOR SIGNS",
-  "CHANNEL LETTERS",
-  "PYLON SIGNS",
+  "ADDA SIGNS",
+  "DOOR SIGNS",
+  "LOBBY SIGNS",
+  "BUSINESS SIGNS",
+  "ACRYLIC SIGNS",
+  "STORE FRONT SIGNS",
+  "Building Signs",
+  "Pylon Signs",
+  "Metal Signs"
 ];
 
 const MarqueeText = () => {

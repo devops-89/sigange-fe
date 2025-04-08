@@ -12,6 +12,8 @@ import { TestimonialsSection } from '@/components/ui/TestimonialsSection';
 import ContactUs from '@/components/ContactUs';
 import BlogsSection from '@/components/BlogSection';
 import CityPlacesSection from '@/components/CityCardSection';
+import Testimonials  from '@/components/Testimonials';
+import OurClients from '@/components/OurClients';
 
 
 
@@ -56,11 +58,12 @@ const CityPage = () => {
        
         <OurServices />
         <MarqueeText />
-        <TestimonialsSection testimonials={testimonialsData} autoplay={true} />
+        <Testimonials testimonials={testimonialsData} autoplay="true" />
     
        <ExpertMediaAgency />
       
        <BlogsSection/>
+       <OurClients/>
        <ContactUs />
         <CityPlacesSection /> 
       <CityFooter/>

@@ -22,7 +22,7 @@ const LeftNavbar = () => {
           >
             <Link
               href={`/citypage/${city}`}
-              className="text-4xl font-bold group-hover:text-orange-500 transition-all duration-500 ease-in-out"
+              className="text-4xl  font-bold group-hover:text-orange-500 transition-all duration-500 ease-in-out"
             >
               {city}
             </Link>

@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import CityFooter from "@/components/CityFooter";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -25,7 +26,7 @@ export default function Home() {
       />
 
       {/* Top Bar */}
-      <div className="w-full flex justify-between items-center pl-4 sm:pl-10 pt-4">
+      <div className="w-full flex justify-between items-center pl-4 sm:pl-20 pt-4">
         <Link href="/">
           <img src="/logo.webp" className="w-[140px]" alt="Logo" />
         </Link>
@@ -46,36 +47,36 @@ export default function Home() {
         </button>
       </div>
 
-    {/* Main Layout */}
-<div className="min-h-screen w-full px-4 sm:px-0">
-  {/* Desktop layout with 1fr 2fr 1fr distribution */}
-  <div className="hidden md:grid w-full h-full lg:px-20 gap-4 md:grid-cols-[240px_auto_240px] items-center min-h-screen">
-    <div>
-      <LeftNavbar />
-    </div>
-    <div>
-      <Services />
-    </div>
-    <div>
-      <RightNavbar />
-    </div>
-  </div>
+      {/* Main Layout */}
+      <div className="min-h-screen w-full px-4 sm:px-0">
+        {/* Desktop layout */}
+        <div className="hidden md:grid w-full h-full lg:px-20 gap-4 md:grid-cols-[240px_auto_240px] items-center min-h-screen">
+          <div>
+            <LeftNavbar />
+          </div>
+          <div>
+            <Services />
+          </div>
+          <div>
+            <RightNavbar />
+          </div>
+        </div>
 
-  {/* Mobile Layout */}
-  {menuOpen && (
-    <div className="md:hidden flex flex-col items-center w-full">
-      <LeftNavbar />
-      <RightNavbar />
-    </div>
-  )}
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="md:hidden w-full px-4 mt-6">
+            <Navbar />
+          </div>
+        )}
 
-  {!menuOpen && (
-    <div className="md:hidden mt-10">
-      <Services />
-    </div>
-  )}
-</div>
-    <CityFooter/>
+        {!menuOpen && (
+          <div className="md:hidden mt-10">
+            <Services />
+          </div>
+        )}
+      </div>
+
+      <CityFooter />
     </div>
   );
 }

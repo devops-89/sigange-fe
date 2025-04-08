@@ -34,8 +34,8 @@ const blogs = [
 
 export default function BlogsSection() {
   return (
-    <section className="md:py-16 pt-20 bg-white mb-[60px] md:mb-0">
-      <div className="max-w-6xl mx-auto text-center px-4">
+    <section className="md:py-16 pt-20 bg-white mb-[60px] md:mb-0 md:px-30 px-2">
+      <div className=" mx-auto text-center ">
         <div className="mb-[30px] text-center" data-aos="fade-up">
           <p className="md:text-2xl text-xl text-orange-600 uppercase mb-3">Our Insights</p>
           <h1 className="md:text-6xl text-4xl text-gray-900 font-extrabold">Latest Blogs</h1>
@@ -60,11 +60,11 @@ export default function BlogsSection() {
               >
                 {/* Hover effect container */}
                 <div
-                  className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110 parent-testimonial relative"
+                  className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110  relative"
                   style={{ backgroundImage: `url(${blog.image})` }}
                 >
                   {/* Dark overlay */}
-                  <div className="h-full w-full flex flex-col justify-end p-6 text-white background-animation bg-black/40">
+                  <div className="h-full w-full flex flex-col justify-end p-6 text-white  bg-black/40">
                     <span className="text-sm uppercase text-orange-400 font-semibold mb-1 z-10">
                       {blog.category}
                     </span>

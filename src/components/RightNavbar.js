@@ -12,7 +12,7 @@ const RightNavbar = () => {
 
   return (
     <nav className="text-white h-full flex items-start justify-end  min-h-[300px]">
-      <ul className="flex flex-col justify-start items-end space-y-6 pr-6 ">
+      <ul className="flex flex-col justify-start  space-y-6 pr-6 ">
         {rightCities.map((city, index) => (
           <li
             key={city}

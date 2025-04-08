@@ -75,7 +75,7 @@ const CityFooter = () => {
             />
             <button
               type="submit"
-              className="w-full bg-orange-600 hover:bg-orange-700 transition-all text-white py-2 font-semibold text-sm "
+              className="w-full cursor-pointer bg-orange-600 hover:bg-orange-700 transition-all text-white py-2 font-semibold text-sm "
             >
               SUBSCRIBE NOW
             </button>

@@ -3,12 +3,13 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
 const servicesData = [
-  { title: "LED Signs", desc: "Bright, energy-efficient signage for your business." },
+ 
   { title: "Channel Letters", desc: "Custom 3D letters to enhance your storefront." },
   { title: "Pylon Signs", desc: "High-visibility signs for maximum brand exposure." },
-  { title: "Neon Signs", desc: "Classic neon signs with a modern twist." },
+  { title: "Indoor Signs", desc: "Eye-catching interior signage for lobbies, hallways, and offices." },
+  { title: "Outdoor Signs", desc: "Durable signs to withstand the elements and attract attention." },
   { title: "Vehicle Wraps", desc: "Turn your vehicle into a moving billboard." },
-  { title: "Monument Signs", desc: "Elegant, ground-level signage for a professional look." },
+  
 ];
 
 const Services = () => {
@@ -21,7 +22,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto border-x-1 border-x-white mb-10 text-center px-6 py-12">
+    <div className="max-w-6xl mx-auto md:border-x-1 md:border-x-white mb-10 text-center px-6 py-12">
      
       {/* Section Heading */}
       <h2 data-aos="fade-up" className="text-xl font-medium text-gray-300 tracking-wide uppercase">
@@ -45,13 +46,13 @@ const Services = () => {
       </h1>
 
       {/* Dynamic Grid for Services */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="mt-12 flex flex-wrap justify-center gap-x-3 gap-y-5  ">
         {servicesData.map((service, index) => (
           <div
             key={index}
             data-aos="zoom-in"
             data-aos-delay={index * 100} // Stagger animation
-            className=" p-6 rounded-lg shadow-lg   
+            className=" p-6 rounded-lg shadow-lg md:w-[32%]  w-[100%]
                        hover:scale-105 hover:shadow-lg shadow-gray-500/30 transition-transform duration-600 ease-in-out"
           >
             <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
