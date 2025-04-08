@@ -53,7 +53,7 @@ const CityNavbar = () => {
         >
           <ul className="flex flex-col justify-center items-center md:flex-row space-y-6 md:space-y-0 md:space-x-6 p-6 md:p-0 font-medium text-xl">
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#home">
+              <Link className="hover:text-gray-300 transition-colors" href="/">
                 Home
               </Link>
             </li>

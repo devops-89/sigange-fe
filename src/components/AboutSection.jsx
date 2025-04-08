@@ -38,9 +38,7 @@ const AboutSection = () => {
         {/* Right Side */}
         <div className="flex flex-col gap-10" >
           <p className="text-gray-600 md:text-left text-center text-xl">
-            We are a value-driven organization. Our core values inspire us to
-            push our boundaries and set benchmarks for others to push their
-            boundaries.
+          We are a sign, wrap and Print company With over 30 years of excellence, we're dedicated to bringing your vision to life with our variety of services.
           </p>
 
           {/* Counter Section */}

@@ -1,17 +1,18 @@
-import HeroSlider from '@/components/HeroSlider';
 
 import React from 'react';
 import ExpertMediaAgency from '@/components/ExpertMediaAgency';
 import { useRouter } from 'next/router';
 import CityNavbar from '@/components/CityNavbar';
 import OurServices from '@/components/our-services';
-
+import MarqueeText from '@/components/MarqueeText';
 import AboutSection from '@/components/AboutSection';
-
-import Footer from '@/components/Footer';
-import Testimonials from '@/components/Testimonials';
-import { OurProducts } from '@/components/ui/our-products';
+import CitySlider from '@/components/CitySlider';
+import CityFooter from '@/components/CityFooter';
+import { TestimonialsSection } from '@/components/ui/TestimonialsSection';
 import ContactUs from '@/components/ContactUs';
+import BlogsSection from '@/components/BlogSection';
+import CityPlacesSection from '@/components/CityCardSection';
+
 
 
 
@@ -23,48 +24,46 @@ const CityPage = () => {
 
   const testimonialsData = [
     {
-      name: "CHANNEL LETTERS",
+      name: "Vita Denture Cinic",
       designation: "CEO, Tech Innovations",
-      quote: "Attractive outdoor signs for all businesses - Outshine your competition with large 3D sign letters.",
+      comments: "I am so thankful to Jassal Signs and Harry. We had an event for which Jassal Signs made our banner. We forgot to pick it up before their closing, and after our frantic call after hours, Harry called and text, and eventually delivered the banner to us. The banner looked great, but the services above and beyond... Thank you",
       src: "/products/product2.jpg", 
+      rating:5
     },
     {
-      name: "INDOOR SIGNS",
+      name: "Meenu Dahal",
       designation: "Marketing Head, Creative Agency",
-      quote: "Improve customer experience and make your premises safer with professional indoor signs. Mega Signs is the one stop show for all your indoor signage needs in Edmonton",
+      comments: "I am super happy with the products and the customer services (especially Gagan, Vik and the receptionist were very professional and they know what they are doing. I would highly recommend everyone ti this shop for any kinds of banners, signs, printings, poster and etc.",
       src: "/products/product3.png",
+      rating:4
     },
     {
-      name: "PYLON SIGNS",
+      name: "Armaan Dhaliwal",
       designation: "Founder, Startup Hub",
-      quote: "Grow brand awareness generate leads from afar and became a local landmark with signage that towers above the competition",
+      comments: "Throughout the whole buying experience from walking in with no vision to walking out with the most eye catching sign, Jassal Signs was like no other when it comes to customer service. I was treated like family, not a customer, which I was surprised about as most competitors don’t give this level of care. ",
       src: "/products/product1.jpg",
-    },
-    {
-      name: "VEHICLES WRAPS",
-      designation: "CTO, FinTech Corp",
-      quote: "Branded vehicles are one of the most effective ways of growing your brand make an impact in your community with custom vehicles wraps for your commeercial vehicles",
-      src: "/products/product4.jpg",
-    },
+      rating:5
+    }
   ];
   
   
   return (
     <>
        <CityNavbar/>
-       <HeroSlider cityName={router.query.slug}/>
+       <CitySlider cityName={router.query.slug}/>
        <AboutSection/>
       
        
         <OurServices />
-        <OurProducts testimonials={testimonialsData} autoplay={true} />
+        <MarqueeText />
+        <TestimonialsSection testimonials={testimonialsData} autoplay={true} />
     
        <ExpertMediaAgency />
       
-       <Testimonials/> 
+       <BlogsSection/>
        <ContactUs />
-         
-      <Footer/>
+        <CityPlacesSection /> 
+      <CityFooter/>
      </>
   )
 }

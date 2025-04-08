@@ -1,28 +1,20 @@
-'use client';
-import { useState } from 'react';
-import { Geist, Geist_Mono } from 'next/font/google';
-import Navbar from '@/components/Navbar';
-import TempServices from '@/components/TempServices';
-import Link from 'next/link';
-import { IoMdClose } from 'react-icons/io';
-import MarqueeText from '@/components/MarqueeText';
-import HomepageFooter from '@/components/HomepageFooter';
+import { useState } from "react";
+import { Geist, Geist_Mono } from "next/font/google";
+import LeftNavbar from "@/components/LeftNavbar";
+import RightNavbar from "@/components/RightNavbar";
+import Services from "@/components/Services";
+import Link from "next/link";
+import { IoMdClose } from "react-icons/io";
+import CityFooter from "@/components/CityFooter";
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen w-full text-white">
+    <div className="relative min-h-screen w-full text-white overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -32,56 +24,58 @@ export default function Home() {
         src="/background.mp4"
       />
 
-      {/* Page Content */}
-      <div className="flex h-screen flex-col sm:p-0">
-        {/* Header */}
-        <div className="flex  items-center md:pt-10 md:pl-48 sm:px-10">
-          <Link href="/">
-            <img src="/logo.webp" className="w-[140px]" alt="Logo" />
-          </Link>
+      {/* Top Bar */}
+      <div className="w-full flex justify-between items-center pl-4 sm:pl-10 pt-4">
+        <Link href="/">
+          <img src="/logo.webp" className="w-[140px]" alt="Logo" />
+        </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden z-30 focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? (
-              <IoMdClose className="text-[30px] text-white" />
-            ) : (
-              <div className="flex flex-col gap-[4px]">
-                <div className="w-6 h-1 bg-white" />
-                <div className="w-6 h-1 bg-white" />
-                <div className="w-6 h-1 bg-white" />
-              </div>
-            )}
-          </button>
-        </div>
-
-        {/* Services + Navigation */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 px-4  sm:mt-12 h-auto sm:h-[80vh]">
-          {/* TempServices */}
-          <div className="w-full sm:w-auto">
-            <TempServices />
-          </div>
-
-          {/* Navbar */}
-          <div
-            className={`w-full sm:w-[350px] border-t sm:border-t-0 sm:border-l border-white pt-6 sm:pt-0 pl-0 sm:pl-6 transition-all duration-300 ${
-              menuOpen ? 'block' : 'hidden sm:block'
-            }`}
-          >
-            <Navbar />
-          </div>
-        </div>
-
-        {/* Marquee Text */}
-        <div className="mt-10">
-          <MarqueeText />
-        </div>
+        <button
+          className="md:hidden z-30 focus:outline-none pr-4"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? (
+            <IoMdClose className="text-white text-[30px]" />
+          ) : (
+            <div>
+              <div className="w-6 h-1 bg-white mb-1" />
+              <div className="w-6 h-1 bg-white mb-1" />
+              <div className="w-6 h-1 bg-white" />
+            </div>
+          )}
+        </button>
       </div>
 
-      {/* Footer */}
-      <HomepageFooter />
+    {/* Main Layout */}
+<div className="min-h-screen w-full px-4 sm:px-0">
+  {/* Desktop layout with 1fr 2fr 1fr distribution */}
+  <div className="hidden md:grid w-full h-full lg:px-20 gap-4 md:grid-cols-[240px_auto_240px] items-center min-h-screen">
+    <div>
+      <LeftNavbar />
+    </div>
+    <div>
+      <Services />
+    </div>
+    <div>
+      <RightNavbar />
+    </div>
+  </div>
+
+  {/* Mobile Layout */}
+  {menuOpen && (
+    <div className="md:hidden flex flex-col items-center w-full">
+      <LeftNavbar />
+      <RightNavbar />
+    </div>
+  )}
+
+  {!menuOpen && (
+    <div className="md:hidden mt-10">
+      <Services />
+    </div>
+  )}
+</div>
+    <CityFooter/>
     </div>
   );
 }
