@@ -11,18 +11,18 @@ const RightNavbar = () => {
   }, []);
 
   return (
-    <nav className="text-white h-full flex items-start justify-end  min-h-[300px]">
-      <ul className="flex flex-col justify-start  space-y-6 pr-6 ">
+    <nav className="text-white h-full flex items-start justify-end min-h-[300px]">
+      <ul className="flex flex-col justify-end pr-6 space-y-6">
         {rightCities.map((city, index) => (
           <li
             key={city}
-            className="group cursor-pointer"
+            className="cursor-pointer"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
             <Link
               href={`/citypage/${city}`}
-              className="text-4xl font-bold group-hover:text-orange-500 transition-all duration-500 ease-in-out"
+              className="block text-[30px] font-bold transition-transform duration-300 hover:text-orange-500 hover:scale-105"
             >
               {city}
             </Link>

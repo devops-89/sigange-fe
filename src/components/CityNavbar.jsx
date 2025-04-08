@@ -1,8 +1,10 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import CustomButton from "./ui/CustomButton";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
+
 const CityNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -10,14 +12,12 @@ const CityNavbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleScroll = () => {
-        setIsScrolling(window.pageYOffset > 0);
-      };
+    const handleScroll = () => {
+      setIsScrolling(window.pageYOffset > 0);
+    };
 
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -26,61 +26,59 @@ const CityNavbar = () => {
         isScrolling ? "bg-black/70 backdrop-blur-sm shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-4 px-30">
+      <div className="container mx-auto flex items-center justify-between py-4 px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/">
           <img src="/logo.webp" className="w-[140px]" alt="Logo" />
         </Link>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden z-30 focus:outline-none" onClick={toggleMenu}>
-          {menuOpen ? (
-            <div className="text-white"><IoMdClose className="text-[30px]" /></div>
-          ) : (
+        <button className="md:hidden z-50 text-white" onClick={toggleMenu}>
+          {menuOpen ? <IoMdClose className="text-[30px]" /> : (
             <div>
-              <div className="w-6 h-1 bg-white mb-1"></div>
-              <div className="w-6 h-1 bg-white mb-1"></div>
-              <div className="w-6 h-1 bg-white"></div>
+              <div className="w-6 h-1 bg-white mb-1" />
+              <div className="w-6 h-1 bg-white mb-1" />
+              <div className="w-6 h-1 bg-white" />
             </div>
           )}
         </button>
 
         {/* Navbar Links */}
         <div
-          className={`absolute top-0 left-0 w-full flex item-center justify-center h-screen md:w-auto md:h-auto bg-black text-white md:bg-transparent shadow-md md:shadow-none md:static md:flex md:items-center transition-all duration-300 ${
-            menuOpen ? "block" : "hidden"
+          className={`absolute top-0 left-0 w-full md:py-0 h-screen bg-black text-white flex flex-col items-center justify-center transition-all duration-300 md:static md:flex md:flex-row md:justify-end md:items-center md:bg-transparent md:h-auto md:w-auto ${
+            menuOpen ? "block" : "hidden md:flex"
           }`}
         >
-          <ul className="flex flex-col justify-center items-center md:flex-row space-y-6 md:space-y-0 md:space-x-6 p-6 md:p-0 font-medium text-xl">
+          <ul className="flex flex-col items-center gap-6 md:flex-row md:gap-6 text-xl font-medium">
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="/">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-gray-300 transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#service">
+              <Link href="#service" onClick={() => setMenuOpen(false)} className="hover:text-gray-300 transition-colors">
                 Service
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#product">
+              <Link href="#product" onClick={() => setMenuOpen(false)} className="hover:text-gray-300 transition-colors">
                 Products
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#about">
+              <Link href="#about" onClick={() => setMenuOpen(false)} className="hover:text-gray-300 transition-colors">
                 About Us
               </Link>
             </li>
             <li>
-              <Link className="hover:text-gray-300 transition-colors" href="#contact">
+              <Link href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-gray-300 transition-colors">
                 Contact
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Right Side Button */}
+        {/* Right Side Button (Desktop Only) */}
         <div className="hidden md:flex items-center">
           <Link href="#contact">
             <CustomButton>Contact Us</CustomButton>

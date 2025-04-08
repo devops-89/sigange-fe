@@ -11,8 +11,8 @@ const LeftNavbar = () => {
   }, []);
 
   return (
-    <nav className="text-white h-full flex items-start  min-h-[300px]">
-      <ul className="flex flex-col justify-center space-y-6  w-full ">
+    <nav className="text-white h-full flex items-start min-h-[300px]">
+      <ul className="flex flex-col justify-center space-y-6 w-full ">
         {leftCities.map((city, index) => (
           <li
             key={city}
@@ -22,7 +22,7 @@ const LeftNavbar = () => {
           >
             <Link
               href={`/citypage/${city}`}
-              className="text-4xl  font-bold group-hover:text-orange-500 transition-all duration-500 ease-in-out"
+              className="block text-[30px] font-bold transition-transform duration-300 group-hover:text-orange-500 group-hover:scale-105"
             >
               {city}
             </Link>

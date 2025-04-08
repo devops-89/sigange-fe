@@ -22,7 +22,7 @@ export default function Home() {
         loop
         muted
         className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-        src="/background.mp4"
+        src="/background.mov"
       />
 
       {/* Top Bar */}

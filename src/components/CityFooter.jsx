@@ -20,8 +20,7 @@ const CityFooter = () => {
           />
           {/* About Text */}
           <p className="text-sm text-gray-300 leading-relaxed">
-            Mega Signs is a full-service signage company based in Edmonton,
-            Alberta. We specialize in high-quality custom signs for businesses
+            Mega Signs is a full-service signage company. We specialize in high-quality custom signs for businesses
             across various industries.
           </p>
           {/* Social Icons */}
@@ -37,7 +36,7 @@ const CityFooter = () => {
           <h2 className="text-lg font-semibold mb-4">QUICK LINKS</h2>
           <ul className="space-y-2 text-gray-300 text-sm">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/citypage">About Us</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Blogs</a></li>
             <li><a href="#">Gallery</a></li>

@@ -6,81 +6,36 @@ import "react-image-lightbox/style.css";
 
 const images = [
   {
-    src: "/homepage/gallery/image1.jpeg",
+    src: "/gallery/gallery1.jpg",
     category: "people",
     title: "Choice of India Signage by Edmonton Sign Company, AB",
   },
   {
-    src: "/homepage/gallery/image2.jpeg",
+    src: "/gallery/gallery2.jpeg",
     category: "product",
     title: "CUSTOM CHANNEL LETTER NAMASTE INDIA BY EDMONTON SIGNS, AB",
   },
   {
-    src: "/homepage/gallery/image3.jpeg",
+    src: "/gallery/gallery3.jpeg",
     category: "product",
     title: "LOCAL SIGN SHOP THE BROKIN YOLK IN EDMONTON, AB",
   },
   {
-    src: "/homepage/gallery/image4.jpeg",
+    src: "/gallery/gallery4.jpg",
     category: "",
     title: "BUSINESS TAMARACK MEDICAL CLINIC BY EDMONTON SIGN, AB",
   },
   {
-    src: "/homepage/gallery/image5.jpeg",
+    src: "/gallery/gallery5.jpg",
     category: "",
     title: "COMMERCIAL CHANNEL LETTER BY EDMONTON SIGN, AB",
   },
   {
-    src: "/homepage/gallery/image6.jpeg",
+    src: "/gallery/gallery6.jpg",
     category: "product",
     title: "CUSTOM OLYMPIA LIQUOR CHANNEL LETTER BY EDMONTON SIGNS, AB",
   },
-  {
-    src: "/homepage/gallery/image7.jpeg",
-    category: "",
-    title: "CUSTOM BUCK OR TWO STOREFRONT SIGN BY EDMONTON SIGNS, AB ",
-  },
-  {
-    src: "/homepage/gallery/image8.jpeg",
-    category: "weddings",
-    title: "COMMERCIAL STOREFRONT PHARMACY BY EDMONTON SIGNS COMPANY, AB  ",
-  },
-  {
-    src: "/homepage/gallery/image9.jpeg",
-    category: "COMMERCIAL BUSINESS DAYCARE & OSC BY EDMONTON SIGNS, AB ",
-    title: "COMMERCIAL BUSINESS DAYCARE & OSC BY EDMONTON SIGNS, AB ",
-  },
-  {
-    src: "/homepage/gallery/image10.jpeg",
-    category: "weddings",
-    title: "COMMERCIAL SUPERCLIPS STOREFRONT SIGNAGE BY EDMONTON SIGNS, AB ",
-  },
-  {
-    src: "/homepage/gallery/image11.jpeg",
-    category: "weddings",
-    title: "BUSINESS SIGNAGE BY EDMONTON SIGNS, AB ",
-  },
-  {
-    src: "/homepage/gallery/image12.jpeg",
-    category: "people",
-    title: "EPIC RED BUSINESS SIGNAGE BY EDMONTON SIGNS COMPANY, AB ",
-  },
-  {
-    src: "/homepage/gallery/image13.jpeg",
-    category: "weddings",
-    title: "COMMERCIAL SWEET $ SASSY SIGNAGE BY EDMONTON SIGNS, AB",
-  },
-  {
-    src: "/homepage/gallery/image14.jpeg",
-    category: "realstate",
-    title: "CUSTOM ECONO LIQUOR BUSINESS BY SIGN COMPANY EDMONTON, AB",
-  },
-  {
-    src: "/homepage/gallery/image15.jpeg",
-    category: "weddings",
-    title: "COMMERCIAL SUBWAY SIGNAGE BY EDMONTON SIGNS COMPANY, AB",
-  },
-  
+ 
 ];
 
 export default function SignageGallery() {
@@ -98,24 +53,21 @@ export default function SignageGallery() {
 
   return (
     <section  className="py-20 md:px-20" id="gallery">
+       
       <div className="container mx-auto px-4">
-        {/* Animated Heading */}
-        <div className="flex justify-center flex-wrap mb-8">
-          <h1
-            data-aos="fade-up"
-            className=" text-xl md:text-3xl font-bold uppercase text-gray-900  mx-auto"
-           
-          >
-            Check Out Our Gallery to Find the Best Signage Design for Your Next Project
+      <div className=" mb-[30px] text-center" data-aos="fade-up">
+        
+          <h1 className="md:text-6xl text-4xl text-[#101828] font-extrabold">
+           Our Gallery<span className="text-orange-600"></span>
           </h1>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {filteredImages.map((img, index) => (
             <div
               key={index}
-              className="cursor-pointer group relative overflow-hidden shadow-md"
+              className="cursor-pointer group relative overflow-hidden shadow-md "
               onClick={() => setLightboxIndex(index)}
             >
               <img

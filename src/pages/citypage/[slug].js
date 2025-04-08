@@ -14,6 +14,7 @@ import BlogsSection from '@/components/BlogSection';
 import CityPlacesSection from '@/components/CityCardSection';
 import Testimonials  from '@/components/Testimonials';
 import OurClients from '@/components/OurClients';
+import SignageGallery from '@/components/SignageGallery';
 
 
 
@@ -59,6 +60,7 @@ const CityPage = () => {
         <OurServices />
         <MarqueeText />
         <Testimonials testimonials={testimonialsData} autoplay="true" />
+        <SignageGallery/>
     
        <ExpertMediaAgency />
       

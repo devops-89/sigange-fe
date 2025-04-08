@@ -26,7 +26,7 @@ const ContactUs = () => {
               <input
                 type="text"
                 placeholder="Please Enter Your Name"
-                className="w-full border p-2 rounded mt-1"
+                className="w-full border p-2  mt-1"
                 required
               />
             </div>
@@ -36,7 +36,7 @@ const ContactUs = () => {
                 <input
                   type="email"
                   placeholder="Please Enter Your Email"
-                  className="w-full border p-2 rounded mt-1"
+                  className="w-full border p-2  mt-1"
                   required
                 />
               </div>
@@ -45,7 +45,7 @@ const ContactUs = () => {
                 <input
                   type="text"
                   placeholder="Please Enter Your Phone Number"
-                  className="w-full border p-2 rounded mt-1"
+                  className="w-full border p-2  mt-1"
                   required
                 />
               </div>
@@ -54,7 +54,7 @@ const ContactUs = () => {
               <label className="block font-medium">Message</label>
               <textarea
                 placeholder="Please Enter Your message"
-                className="w-full border p-2 rounded mt-1"
+                className="w-full border p-2  mt-1"
                 rows="3"
               ></textarea>
             </div>
